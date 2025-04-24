@@ -1,14 +1,19 @@
-
-// Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 var cart = [];
 
 var total = 0;
 
 // Exercise 1
 function buy(id) {
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cart array
+    let productsItem = findItemById(products, id)
+    let cartItem = findItemById(cart, id)
+    if(cartItem==undefined){
+        cart.push(new Item(productsItem.id, productsItem.name, productsItem.price, productsItem.type, productsItem.offer))
+    }
+    cartItem = findItemById(cart, id)
+    cartItem.addItem()
 }
+buy(2)
+console.log(cart)
 
 // Exercise 2
 function cleanCart() {
@@ -40,4 +45,15 @@ function removeFromCart(id) {
 
 function open_modal() {
     printCart();
+}
+// --- Utils ---
+function findItemById(array, numId){
+    return array.find(item=> item.id==numId)
+    /*
+    let aux = -1
+    for(let i; i<products.length; i++){
+        if(products[i].id==numId) {aux=i}
+    }
+    return aux
+    */
 }

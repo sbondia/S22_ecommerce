@@ -1,4 +1,4 @@
-const items = []
+//const items = []
 const products = [
     {
         id: 1,
