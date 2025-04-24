@@ -1,10 +1,11 @@
 "use strict"
 class Item{
-    constructor(id, name, price, type, offer=null){
+    constructor(id, name, itemPrice, type, offer=null){
         this._id = id
         this._name = name
         this._count = 0
-        this._price = price
+        this._price = 0
+        this._basePrice = itemPrice
         this._category = type
         if(!offer) {this._discount = null}
         else{
@@ -18,19 +19,47 @@ class Item{
     get name() {return this._name}
     get count() {return this._count}
     get price() {return this._price}
+    get basePrice() {return this._basePrice}
     get category() {return this._category}
     get discount() {return this._discount}
     set count(value) {this._count = value}
-    updatePrice(){
-        this.price = this.price*this.count
+    set price(value) {this._price = value}
+    addItem(){
+        this.count++
+        this.updatePrice()
     }
-    setDiscount(){
+    removeItem(){
+        this.count--
+        this.updatePrice()
+    }
+    updatePrice(){
+        this.price = this.basePrice*this.count
         if(this.discount!=null && this.discount.minItems>=this.count){
-            this.price = this.price*((100-this.discount)/100)
+            this.price = this.price*((100-this.discount.percent)/100)
         }
     }
 }
 products.forEach(product=>{
     items.push(new Item(product.id, product.name, product.price, product.type, product.offer))
 })
+
+items[1].addItem()
+console.log(items[1])
 console.log(items)
+
+items[1].addItem()
+console.log(items[1])
+console.log(items)
+
+items[1].addItem()
+console.log(items[1])
+console.log(items)
+
+
+/*
+
+items[0].addItem()
+console.log(items, '2')
+items[0].addItem()
+console.log(items, '3')
+ */
