@@ -42,24 +42,3 @@ class Item{
 products.forEach(product=>{
     items.push(new Item(product.id, product.name, product.price, product.type, product.offer))
 })
-
-items[1].addItem()
-console.log(items[1])
-console.log(items)
-
-items[1].addItem()
-console.log(items[1])
-console.log(items)
-
-items[1].addItem()
-console.log(items[1])
-console.log(items)
-
-
-/*
-
-items[0].addItem()
-console.log(items, '2')
-items[0].addItem()
-console.log(items, '3')
- */
