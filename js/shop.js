@@ -1,7 +1,3 @@
-// => Reminder, it's extremely important that you debug your code. 
-// ** It will save you a lot of time and frustration!
-// ** You'll understand the code better than with console.log(), and you'll also find errors faster. 
-// ** Don't hesitate to seek help from your peers or your mentor if you still struggle with debugging.
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 var cart = [];
@@ -16,7 +12,7 @@ function buy(id) {
 
 // Exercise 2
 function cleanCart() {
-
+    cart.splice(0, cart.length)
 }
 
 // Exercise 3
