@@ -34,7 +34,7 @@ class Item{
     }
     updatePrice(){
         this.price = this.basePrice*this.count
-        if(this.discount!=null && this.discount.minItems>=this.count){
+        if(this.discount!=null && this.count>=this.discount.minItems){
             this.price = this.price*((100-this.discount.percent)/100)
         }
     }
