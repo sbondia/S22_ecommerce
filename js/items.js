@@ -39,8 +39,3 @@ class Item{
         }
     }
 }
-/*
-products.forEach(product=>{
-    items.push(new Item(product.id, product.name, product.price, product.type, product.offer))
-})
-*/

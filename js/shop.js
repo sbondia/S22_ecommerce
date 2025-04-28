@@ -15,35 +15,29 @@ function buy(id) {
     calculateTotal()
 }
 
-
 // Exercise 2
 function cleanCart() {
     cart.splice(0, cart.length)
     document.getElementById("cart_list").innerHTML = ''
-    document.getElementById("total_price").innerHTML = '0'
-    document.getElementById("count_product").innerHTML = '0'
     calculateTotal()
 }
 
 // Exercise 3
 function calculateTotal() {
-    total = 0.00
+    total = 0
     cart.forEach(item=> total+=item.price)
     document.getElementById("total_price").innerHTML = total.toFixed(2)
     document.getElementById("count_product").innerHTML = cart.length
     console.log(total, cart.length)
 }
 
-/* Exercise 4
+// Exercise 4
 function applyPromotionsCart() {
-    // Apply promotions to each item in the array "cart"
 }
-*/
+
 
 // Exercise 5
 function printCart() {
-    //document.getElementById("cart_list").innerHTML = ''
-    //cart.forEach(item=> rearmTable(item.id))
 }
 
 // ** Nivell II **
