@@ -72,6 +72,13 @@ function rearmRow(itemId){
             <td>$${item.price.toFixed(2)}</td>
         </tr>
     `
-    try {document.getElementById(`rowItem${item.id}`).innerHTML = item.count>0 ? itemRow : ''}
+    try {
+        console.log(cart, cart.indexOf(item))
+        if(item.count>0) {document.getElementById(`rowItem${item.id}`).innerHTML = itemRow}
+        else{
+            cart.splice(cart.indexOf(item), 1)
+            document.getElementById(`rowItem${item.id}`).remove()
+        }
+    }
     catch(errRowNotFound) {document.getElementById("cart_list").innerHTML += itemRow}
 }
