@@ -34,32 +34,8 @@ class Item{
     }
     updatePrice(){
         this.price = this.basePrice*this.count
-        if(this.discount!=null && this.discount.minItems>=this.count){
+        if(this.discount!=null && this.count>=this.discount.minItems){
             this.price = this.price*((100-this.discount.percent)/100)
         }
     }
 }
-products.forEach(product=>{
-    items.push(new Item(product.id, product.name, product.price, product.type, product.offer))
-})
-
-items[1].addItem()
-console.log(items[1])
-console.log(items)
-
-items[1].addItem()
-console.log(items[1])
-console.log(items)
-
-items[1].addItem()
-console.log(items[1])
-console.log(items)
-
-
-/*
-
-items[0].addItem()
-console.log(items, '2')
-items[0].addItem()
-console.log(items, '3')
- */

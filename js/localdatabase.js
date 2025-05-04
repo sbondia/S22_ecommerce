@@ -1,4 +1,4 @@
-const items = []
+const clients = []
 const products = [
     {
         id: 1,
