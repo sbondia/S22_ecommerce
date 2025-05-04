@@ -28,7 +28,6 @@ function calculateTotal() {
     cart.forEach(item=> total+=item.price)
     document.getElementById("total_price").innerHTML = total.toFixed(2)
     document.getElementById("count_product").innerHTML = cart.length
-    console.log(total, cart.length)
 }
 
 // Exercise 4
@@ -73,7 +72,6 @@ function rearmRow(itemId){
         </tr>
     `
     try {
-        console.log(cart, cart.indexOf(item))
         if(item.count>0) {document.getElementById(`rowItem${item.id}`).innerHTML = itemRow}
         else{
             cart.splice(cart.indexOf(item), 1)
