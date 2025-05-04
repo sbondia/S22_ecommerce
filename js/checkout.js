@@ -3,8 +3,8 @@
 function validate() {
 	const REGEXP_base = /^[a-zA-ZÀ-ÿ\s]{3,}$/
 	const REGEXP_email = /^[\w.-]+@[\w.-]+\.\w+$/
-	const REGEXP_pass = /^(?=.*[A-Z])(?=.*\d).{6,}$/
-	const REGEXP_phone = /^[0-9]{3,}$/
+	const REGEXP_pass = /^(?=.*[A-Z])(?=.*\d).{4,8}$/
+	const REGEXP_phone = /^[0-9]{9}$/
 	let errCount = 0
 	let pol = false
 
@@ -38,14 +38,15 @@ function validate() {
 	pol = inputCheck(fPhone, REGEXP_phone)
 	inputDisplay(fPhone, errorPhone, pol)
 
-	console.log(errCount)
-	if(errCount==0){console.log('push clientes')}
-	
+	//aqui habria un push a la array que representa la base de clientes si no existe con su carrito correspondiente, se sale de lo que pide el ejercicio pero.
+	if(errCount==0){}
+
+
 	function inputCheck(inputField, regExp){
 		return inputField.value!=false && regExp.test(inputField.value)
 	}
 	function inputDisplay(inputField, errorField, pol){
-		console.log(pol, inputField)
+		//console.log(pol, inputField)
 		if(pol){
 			inputField.style.border = "2px solid green"
 			errorField.classList.remove("invalid-feedback")
@@ -59,8 +60,9 @@ function validate() {
 	}
 }
 document.addEventListener("click", (aux) => {
-	if (aux.target === document.getElementById("btn")) {
-	  aux.preventDefault();
-	  validate()
+	//console.log(aux)
+	if(aux.target === document.getElementById("btn")){
+		aux.preventDefault();
+		validate()
 	}
-  });
+})
