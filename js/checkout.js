@@ -38,12 +38,12 @@ function validate() {
 	pol = inputCheck(fPhone, REGEXP_phone)
 	inputDisplay(fPhone, errorPhone, pol)
 
-	//aqui habria un push a la array que representa la base de clientes si no existe con su carrito correspondiente, se sale de lo que pide el ejercicio pero.
+	//aqui habria un push a la array que representa la base de clientes, si no existe, con su carrito correspondiente. Se sale de lo que pide el ejercicio pero.
 	if(errCount==0){}
 
 
 	function inputCheck(inputField, regExp){
-		return inputField.value!=false && regExp.test(inputField.value)
+		return /*inputField.value!=false &&*/ regExp.test(inputField.value)
 	}
 	function inputDisplay(inputField, errorField, pol){
 		//console.log(pol, inputField)
@@ -59,10 +59,10 @@ function validate() {
 		}
 	}
 }
-document.addEventListener("click", (aux) => {
-	//console.log(aux)
-	if(aux.target === document.getElementById("btn")){
-		aux.preventDefault();
-		validate()
-	}
+const btn = document.querySelector("#btn")
+btn.addEventListener("click", (click) => {
+	//console.log(click)
+	click.preventDefault();
+	validate()
+	
 })
